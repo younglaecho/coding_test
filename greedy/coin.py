@@ -12,7 +12,7 @@ for list in comb:
     a.append(sum(list))
 a.sort()
 print(a)
-numbers = [i for i in range(1, 1001)]
+numbers = [i for i in range(1, 1000001)]
 
 for number in numbers:
     if not number in a:

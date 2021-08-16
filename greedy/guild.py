@@ -2,9 +2,8 @@ n = int(input())
 
 data = list(map(int, input().split()))
 
-data.sort()
+data.sort(reverse=True)
 count = 0
-print(data)
 while True:
     if data[-1] == len(data):
         count += 1
