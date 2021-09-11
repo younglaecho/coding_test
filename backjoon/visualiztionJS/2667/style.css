@@ -1,0 +1,22 @@
+.button {
+  width: 70px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.visualization_box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  padding: 20px;
+  background-color: black;
+}
+
+.whiteSmallbox {
+  background-color: white;
+}
