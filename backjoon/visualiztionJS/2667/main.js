@@ -67,24 +67,19 @@ function syncDelay(milliseconds){
   }
 }
 
-
-const delayed = (fx,timeout) => {
-  setTimeout(fx, timeout)
-}
 const BFS = (y0, x0) => {
-  return new Promise(function(resolve, reject){
-    
-    const queue = [[y0,x0]]
-  
-    const color = '#' + Math.round(Math.random() * 0xffffff).toString(16)
-    let selectedBox = document.querySelector(`.x${x0}y${y0}`)
-    selectedBox.style.backgroundColor = `${color}`
-    while (queue) {
+  const queue = [[y0,x0]]
+
+  const color = '#' + Math.round(Math.random() * 0xffffff).toString(16)
+  let selectedBox = document.querySelector(`.x${x0}y${y0}`)
+  selectedBox.style.backgroundColor = `${color}`
+  while (queue) {
+    setInterval(() => {
       let position =queue.shift()
       if(!position){
         break
       }
-      // console.log(position)
+      console.log(position)
       let x = position[1]
       let y = position[0]
       visited[y][x] = number
@@ -100,31 +95,21 @@ const BFS = (y0, x0) => {
           }
         } 
       }
-      console.log(visited)
-      resolve()
-    }
-  })
-
+      
+    }, 100);
+  }
 
 }
 
-function Iteration() {
-  return new Promise(function(resolve, reject) {
-    for (let i=0;i<length.value;i++) {
-      for (let j=0;j<length.value;j++) {
-        setTimeout(()=> {
-          if(matrix[i][j]==1 && visited[i][j]==0 ){
-            number+=1
-            BFS(i, j)
-          } 
-        },10000*number)
-        resolve()
+startButton.addEventListener('click', ()=> {
+  for (let i=0;i<length.value;i++) {
+    for (let j=0;j<length.value;j++) {
+      if(matrix[i][j]==1 && visited[i][j]==0 ){
+        number += 1
+        BFS(i, j)
       }
     }
-  }) 
-}
-startButton.addEventListener('click', ()=> {
-  Iteration()
+  }
 })  
 
 
