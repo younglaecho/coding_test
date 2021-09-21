@@ -6,19 +6,19 @@ set_counter = []
 number = 0
 dx, dy = [1, -1, 0, 0], [0, 0, 1, -1]
 
-def BFS(y0, x0):
+def BFS(x0, y0):
   cnt = 1
-  queue = [(y0,x0)]
+  queue = [(x0,y0)]
   while queue:
-    y, x = queue.pop(0)
-    visited[y][x] = number
+    x, y = queue.pop(0)
+    visited[x][y] = number
     for i in range(4):
       nx = x + dx[i]
       ny = y + dy[i]
       if 0 <= nx < N and 0 <= ny < N:
-        if visited[ny][nx]==0 and matrix[ny][nx]==1:
-          visited[ny][nx] = number
-          queue.append((ny,nx))
+        if visited[nx][ny]==0 and matrix[nx][ny]==1:
+          visited[nx][ny] = number
+          queue.append((nx,ny))
           cnt+=1
 
   set_counter.append(cnt)
