@@ -67,39 +67,43 @@ function syncDelay(milliseconds){
   }
 }
 
-const BFS = (y0, x0) => {
-  const queue = [[y0,x0]]
 
-  const color = '#' + Math.round(Math.random() * 0xffffff).toString(16)
-  let selectedBox = document.querySelector(`.x${x0}y${y0}`)
-  selectedBox.style.backgroundColor = `${color}`
-  while (queue) {
-    setInterval(() => {
+const BFS = (y0, x0) => {    
+    const queue = [[y0,x0]]
+  
+    const color = '#' + Math.round(Math.random() * 0xffffff).toString(16)
+    let selectedBox = document.querySelector(`.x${x0}y${y0}`)
+    selectedBox.style.backgroundColor = `${color}`
+    while (queue) {
       let position =queue.shift()
       if(!position){
         break
       }
       console.log(position)
+      console.log(visited)
       let x = position[1]
       let y = position[0]
       visited[y][x] = number
       for(let i=0;i<4;i++) {
         nx = x + dx[i]
         ny = y + dy[i]
-        if(0 <= nx && nx < length.value && 0 <= ny && ny < length.value) {
-          if (visited[ny][nx]==0 && matrix[ny][nx]=='1') {
-            selectedBox = document.querySelector(`.x${nx}y${ny}`)
-            selectedBox.style.backgroundColor = `${color}`
-            visited[ny][nx] = number
-            queue.push([ny,nx])  
-          }
-        } 
+        // setTimeout(()=> {
+          if(0 <= nx && nx < length.value && 0 <= ny && ny < length.value) {
+            if (visited[ny][nx]==0 && matrix[ny][nx]=='1') {
+              selectedBox = document.querySelector(`.x${nx}y${ny}`)
+              selectedBox.style.backgroundColor = `${color}`
+              visited[ny][nx] = number
+              queue.push([ny,nx])  
+            }
+          } 
+
+        // }, nx*length.value+ny)
       }
-      
-    }, 100);
-  }
+    }
 
 }
+
+
 
 startButton.addEventListener('click', ()=> {
   for (let i=0;i<length.value;i++) {
