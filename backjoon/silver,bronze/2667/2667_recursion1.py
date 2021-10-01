@@ -38,6 +38,8 @@ def makeBuildings(i, j, cnt):
     aparts[i][j+1]=cnt
     buildings[cnt] += 1
     makeBuildings(i, j+1, cnt)
+  # showBuildings(aparts)
+
 
 for i in range(n):
   for j in range(n):

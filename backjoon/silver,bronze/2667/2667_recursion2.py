@@ -14,9 +14,21 @@ def search(i, j) :
   house += 1
 
   search(i+1, j)
+  for ele in visited:
+    print(ele)
+  print('================================================')
   search(i-1, j)
+  for ele in visited:
+    print(ele)
+  print('================================================')
   search(i, j+1)
+  for ele in visited:
+    print(ele)
+  print('================================================')
   search(i, j-1)
+  for ele in visited:
+    print(ele)
+  print('================================================')
   
 
 for i in range(N):
