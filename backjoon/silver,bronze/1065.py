@@ -11,7 +11,6 @@ for number in numbers:
     prev_diff = int(strNum[1])-int(strNum[0])
     for i in range(1, len(strNum)):
       diff = int(strNum[i])-int(strNum[i-1])
-      print(diff)
       if diff != prev_diff:
         breaked = True
         break
