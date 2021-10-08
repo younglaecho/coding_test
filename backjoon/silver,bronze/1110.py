@@ -21,5 +21,5 @@ else:
         cnt += 1
         if init == n:
             break
-
     print(cnt)
+
