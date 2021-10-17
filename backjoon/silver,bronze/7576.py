@@ -1,16 +1,17 @@
 import copy
+from re import S
 m, n = map(int, input().split())
 
 def test(matrix, i, j):
   global m
   global n
-  if i-1>=0:
+  if i-1>=0 and matrix[i-1][j] == 0:
     matrix[i-1][j]= 1
-  if i+1<n:
+  if i+1<n and matrix[i+1][j]== 0:
     matrix[i+1][j]= 1
-  if j-1>=0:
+  if j-1>=0 and matrix[i][j-1]==0 :
     matrix[i][j-1]= 1
-  if j+1<m:
+  if j+1<m and matrix[i][j+1] ==0:
     matrix[i][j+1]= 1
 
 def zero(matrix):
