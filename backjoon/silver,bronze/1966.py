@@ -18,5 +18,3 @@ for _ in range(int(input())):
       temp = orders[0]
       orders.pop(0)
       orders.append(temp)
-    print(queue)
-    print(orders)
