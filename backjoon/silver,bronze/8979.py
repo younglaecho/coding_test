@@ -7,7 +7,7 @@ for _ in range(n):
 # print(Dict)
 cnt = 0 
 for i in Dict:
-  print(Dict[i]['gold'],  Dict[k]['gold'])
+  # print(Dict[i]['gold'],  Dict[k]['gold'])
 
   if Dict[i]['gold'] > Dict[k]['gold']:
     cnt += 1
