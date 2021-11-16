@@ -8,7 +8,5 @@ def power(a, b, c) :
     else:
       return (temp*temp) % c
 
-
-
 a, b, c = map(int, input().split())
 print(power(a,b,c))
