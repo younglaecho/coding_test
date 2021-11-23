@@ -8,6 +8,6 @@ while True:
     arr.append(num)
     cnt+=1
   num +=1
-  if cnt >b:
+  if cnt > b:
     break
 print(sum(arr[(a-1):(b)]))
