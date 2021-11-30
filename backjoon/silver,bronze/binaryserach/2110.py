@@ -3,9 +3,9 @@ n, c = list(map(int, input().split()))
 array = []
 for _ in range(n):
   array.append(int(input()))
-array.sort()
+array = sorted(array)
 
-start = array[1]-array[0]
+start = 1
 end = array[-1]-array[0]
 result = 0
 while (start<=end):
