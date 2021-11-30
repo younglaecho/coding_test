@@ -1,11 +1,10 @@
 n, m = map(int, input().split())
-arr = [list(input()) for _ in range(m)]
-row = [False for _ in range(n)]
-col = [False for _ in range(m)]
+arr = [list(input()) for _ in range(n)]
+row = [False for _ in range(m)]
+col = [False for _ in range(n)]
 
-print(arr)
-for i in range(m):
-  for j in range(n):
+for i in range(n):
+  for j in range(m):
     if arr[i][j]=='X':
       row[j]=True
       col[i]=True
