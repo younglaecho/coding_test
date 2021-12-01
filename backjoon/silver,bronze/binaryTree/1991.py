@@ -13,16 +13,16 @@ def pre_order(node):
 
 def in_order(node):
   if node.left_node!= '.':
-    pre_order(tree[node.left_node])
+    in_order(tree[node.left_node])
   print(node.data, end='')
   if node.right_node!= '.':
-    pre_order(tree[node.right_node])
+    in_order(tree[node.right_node])
 
 def post_order(node):
   if node.left_node!= '.':
-    pre_order(tree[node.left_node])
+    post_order(tree[node.left_node])
   if node.right_node!= '.':
-    pre_order(tree[node.right_node])
+    post_order(tree[node.right_node])
   print(node.data, end='')
 
 
