@@ -23,4 +23,4 @@ while heap:
       heapq.heappush(heap, i)
 
 for i in result:
-  print(i)
+  print(i, end=" ")
