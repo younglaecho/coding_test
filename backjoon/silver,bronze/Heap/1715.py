@@ -3,10 +3,14 @@ import heapq
 n = int(input())
 
 heap = []
-
+result = 0 
 for _ in range(n):
-  heap.append(int((input())))
-heap.sort()
-for i in range(1,len(heap)):
-  heap[i] = heap[i]+heap[i-1]
-print(sum(heap[1:]))
+  heapq.heappush(heap, int((input())))
+
+while len(heap) != 1:
+  one = heapq.heappop(heap)
+  two = heapq.heappop(heap)
+  result += one+two
+  heapq.heappush(heap, one+two)
+
+print(result)
