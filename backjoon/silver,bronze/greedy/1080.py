@@ -18,8 +18,8 @@ for i in range(n):
     if prev_matrix[i][j] != result_matrix[i][j]:
       breaked = True
       break
-if n<3 or m<3:
-  breaked = True
+# if n<3 or m<3:
+#   breaked = True
 if breaked:
   print(-1)
 else:
