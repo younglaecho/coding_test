@@ -8,10 +8,13 @@ for i in range(10):
       start = matrix[j].find(str(i))
       last = matrix[j].rfind(str(i))
       gap = last-start
-      if (j+gap)<n and matrix[j+gap][start]==str(i) and matrix[j+gap][last]==str(i):
+      # print(start, last,gap)
+      if (j+gap)<n and int(matrix[j+gap][start])==i and int(matrix[j+gap][last])==i:
         result.append((gap+1)**2)
-
-
+      if (j-gap)>=0 and int(matrix[j-gap][start])==i and int(matrix[j-gap][last])==i:
+        result.append((gap+1)**2)
+      # print(i,j,start,last)
+      # print(j, result)
 if result:
   print(max(result))
 else:
