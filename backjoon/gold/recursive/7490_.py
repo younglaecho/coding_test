@@ -24,7 +24,7 @@ for _ in range(n):
   m = int(input())
   recur([], m-1)
   # print(operators)
-
+  print(operators)
   for operator in operators:
     statement = ''
     for i in range(m-1):
