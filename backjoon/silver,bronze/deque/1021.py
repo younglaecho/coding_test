@@ -4,11 +4,11 @@ elements = list(map(int, input().split()))
 result = []
 while elements:
   element = elements.pop(0)
-  print(arr, element)
+  # print(arr, element)
   right = arr[arr.index(element):]
   left = arr[:arr.index(element)]
-  print(right)
-  print(left)
+  # print(right)
+  # print(left)
   if len(right)> len(left) :
     arr = right + left
     result.append(len(left))
