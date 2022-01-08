@@ -18,15 +18,10 @@ position = forward + backward
 
 for _ in range(times):
   i = 0
-  while True:
+  while i <len(position) -1:
     if directions[position[i]] and not  directions[position[i+1]]:
-      tmp = position[i]
-      position[i] = position[i+1]
-      position[i+1] = tmp
+      position[i], position[i+1] = position[i+1],position[i] 
       i += 1
     i += 1
-    if i >=len(position) -1:
-      break
-
 
 print(''.join(position))
