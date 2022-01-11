@@ -11,8 +11,6 @@ for _ in range(test_case):
       break
     period.append((a**i)%10)
 
-  
-  # print(period)
   if len(period)<=b:
     print(period[b%len(period)-1] if period[b%len(period)-1] else 10)
   else: 
