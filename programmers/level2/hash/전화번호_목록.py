@@ -8,6 +8,7 @@ def solution(phone_book):
                 return False
     return True
 
+
 # right
 def solution(phone_book):
     phone_book.sort()
@@ -21,6 +22,7 @@ def solution(phone_book):
 # hash
 def solution(phone_book):
     Dict = {}
+    
     for i in range(len(phone_book)):
         Dict[phone_book[i]] = 1
         
@@ -28,7 +30,7 @@ def solution(phone_book):
         prefix = ""
         for number in phone_number:
             prefix += number
-            if prefix in Dict and prefix != phone_number:
+            if prefix in Dict.keys() and prefix != phone_number:
                 return False
 
     return True
