@@ -1,13 +1,20 @@
 
+from audioop import reverse
+
+
 def solution(k, a, b):
-    answer = sum(a)
-    for i in range(k):
-        min_a = min(a)
-        max_b = max(b)
-        answer += max_b - min_a
-        a.remove(min_a)
-        b.remove(max_b)
-    return answer
+  a.sort(reverse= True)
+  b.sort(reverse= True)
+  answer = 0
+  for i in range(len(a)-k):
+    answer += a[i]
+  for i in range(k):
+    if a[0]>b[0]:
+      answer+=a.pop(0)
+    else:
+      answer+=b.pop(0)
+
+  return answer
 
 k = 3
 a = [1,2,5,4,3]
