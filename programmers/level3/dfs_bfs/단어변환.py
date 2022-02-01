@@ -15,7 +15,7 @@ def solution(begin, target, words):
     List = {}
     words.append(begin)
     for word in words:
-        List[word] = (find_friends(word, words))
+        List[word] = find_friends(word, words)
         
     visited = []
     need_visit = [(begin, 0)]
