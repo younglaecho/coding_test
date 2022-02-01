@@ -14,7 +14,6 @@ for i in range(n):
       queue.append((i,j))
 
 while queue:
-  # print(queue)
   x, y = queue.popleft()
   for k in range(4):
     nx = x+dx[k]
@@ -24,7 +23,6 @@ while queue:
         matrix[nx][ny]=matrix[x][y]+1
         queue.append((nx, ny))
 
-# print(matrix)
 Max = 0
 breaked = False
 for i in matrix:
