@@ -4,8 +4,8 @@ def find_friends(x, words):
         cnt = 0
         for i in range(len(word)):
             if word[i] != x[i]:
-                cnt +=1
-            if cnt >1:
+                cnt += 1
+            if cnt > 1:
                 continue
         if cnt == 1:
             friends_list.append(word)
