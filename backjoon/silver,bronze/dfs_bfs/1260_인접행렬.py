@@ -24,12 +24,12 @@ def dfs(matrix, i, visited):
         if matrix[value][c] == 1 and not visited[c]:
           stack.append(c)
 
-# def dfs(matrix, i, visited):
-#   visited[i] = True
-#   print(i, end=' ')
-#   for c in range(len(matrix[i])):
-#     if matrix[i][c] == 1 and not visited[c]:
-#       dfs(matrix, c, visited)
+def dfs(matrix, i, visited):
+  visited[i] = True
+  print(i, end=' ')
+  for c in range(len(matrix[i])):
+    if matrix[i][c] == 1 and not visited[c]:
+      dfs(matrix, c, visited)
 
 from collections import deque
 def bfs(matrix, i, visited):
