@@ -46,11 +46,15 @@ def dfs_stack(graph, i, visited):
     # print(stack)
 # print(graph)
 
-# for i in graph:
-#   i.reverse()
+for i in graph:
+  i.reverse()
+import time
 
+start = time.time()
 visited = [False] * (n+1)
-# dfs_stack(graph, v, visited)
+dfs_stack(graph, v, visited)
+end = time.time()
+print(end-start)
 
 from collections import deque
 
