@@ -5,7 +5,7 @@ visited = [[0]*N for _ in range(N)]
 number = 1
 dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
-set_counter = []
+counts = []
 
 def BFS(i, j):
   stack=[(i, j)]
@@ -23,7 +23,7 @@ def BFS(i, j):
           count+=1
       # print(queue)
   
-  set_counter.append(count)
+  counts.append(count)
   # for ele in visited:
   #   print(ele)
   
@@ -32,4 +32,4 @@ for i in range(N):
     if matrix[i][j]==1 and visited[i][j]==0:
       BFS(i, j)
 
-print(set_counter)
+print(counts)
