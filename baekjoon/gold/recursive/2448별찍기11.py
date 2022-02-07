@@ -5,7 +5,7 @@ matrix = [[' ' for _ in range(2*n-1)] for _ in range(n)]
 def show(matrix):
   for i in matrix:
     for j in i:
-      # print(j, end='')
+      print(j, end='')
       pass
     print()
 
