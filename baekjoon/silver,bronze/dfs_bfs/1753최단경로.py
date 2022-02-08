@@ -36,5 +36,22 @@ def dijkstra(start):
         distance[j[0]]= distance[now] + j[1]    # 값을 갱신한다.
 
 dijkstra(k)
+result = []
+for i in range(1,len(distance)):
+  if distance[i]== INF:
+    result.append('INF')
+  else:
+    result.append(str(distance[i]))
+  
+print("\n".join(result))
 
-print(distance)
+# 5 6
+# 1
+# 5 1 1
+# 1 2 1
+# 1 3 3
+# 2 3 1
+# 2 4 5
+# 3 4 2
+# 예시를 입력하면 아래와 같이 나온다. 0번 인덱스는 편의상 만든 것이기에 무시하면 되고, 예상했던대오 0 1 2 4 INF 가 나오는것을 확인할 수 있다.
+# [100000000.0, 0, 1, 2, 4, 100000000.0]

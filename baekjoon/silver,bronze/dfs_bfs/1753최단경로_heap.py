@@ -29,8 +29,14 @@ def dijkstra(start):
         distance[i[0]] = dist+i[1]   #
         heapq.heappush(q, (dist+i[1], i[0]))
 dijkstra(k)
-print(distance)
-
+result = []
+for i in range(1,len(distance)):
+  if distance[i]== INF:
+    result.append('INF')
+  else:
+    result.append(str(distance[i]))
+  
+print("\n".join(result))
 # 5 6
 # 1
 # 5 1 1
