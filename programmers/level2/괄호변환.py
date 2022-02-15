@@ -20,7 +20,7 @@ def is_right(p):
             bal -= 1
         if bal < 0: return False
     return True
-       
+      
 def solution(p):
     answer = ''
     if is_right(p) == True:

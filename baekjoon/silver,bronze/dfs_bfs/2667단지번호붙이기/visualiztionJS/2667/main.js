@@ -14,6 +14,7 @@ let number = 0
 
 
 makeButton.addEventListener('click', () => {
+  // 다시 입력했을때 리렌더링하기
   if(Box.hasChildNodes()){
     matrix = []
     visited = []
@@ -21,11 +22,14 @@ makeButton.addEventListener('click', () => {
       Box.removeChild(Box.firstChild)
     }
   }
+
+  // matrix 만들기
   let matrix1 = matrixStr.value.split("\n")
   for (element of matrix1) {
     matrix.push(element.split(""))
   }
   
+  // visited 만들기
   for (let i=0;i<length.value;i++) {
     let list = []
     for (let j=0;j<length.value;j++){
@@ -33,10 +37,9 @@ makeButton.addEventListener('click', () => {
     }
     visited.push(list)
   }
-  // console.log(visited)
+
+  // 흰검 칠하기
   smallLength = 500/length.value
-  
-  
   let x = 0
   let y = 0
   for (list of matrix) {
@@ -59,48 +62,37 @@ makeButton.addEventListener('click', () => {
   }
 })
 
-function syncDelay(milliseconds){
-  var start = new Date().getTime();
-  var end=0;
-  while( (end-start) < milliseconds){
-      end = new Date().getTime();
-  }
-}
-
-
 const BFS = (y0, x0) => {    
-    const queue = [[y0,x0]]
+  const queue = [[y0,x0]]
+
+  // 랜덤 생상 주기
+  const color = '#' + Math.round(Math.random() * 0xffffff).toString(16)
+  let selectedBox = document.querySelector(`.x${x0}y${y0}`)
+  selectedBox.style.backgroundColor = `${color}`
   
-    const color = '#' + Math.round(Math.random() * 0xffffff).toString(16)
-    let selectedBox = document.querySelector(`.x${x0}y${y0}`)
-    selectedBox.style.backgroundColor = `${color}`
-    while (queue) {
-      let position =queue.shift()
-      if(!position){
-        break
-      }
-      console.log(position)
-      console.log(visited)
-      let x = position[1]
-      let y = position[0]
-      visited[y][x] = number
-      for(let i=0;i<4;i++) {
-        nx = x + dx[i]
-        ny = y + dy[i]
-        // setTimeout(()=> {
-          if(0 <= nx && nx < length.value && 0 <= ny && ny < length.value) {
-            if (visited[ny][nx]==0 && matrix[ny][nx]=='1') {
-              selectedBox = document.querySelector(`.x${nx}y${ny}`)
-              selectedBox.style.backgroundColor = `${color}`
-              visited[ny][nx] = number
-              queue.push([ny,nx])  
-            }
-          } 
-
-        // }, nx*length.value+ny)
-      }
+  while (queue) {
+    let position =queue.shift()
+    if(!position){
+      break
     }
-
+    console.log(position)
+    console.log(visited)
+    let x = position[1]
+    let y = position[0]
+    visited[y][x] = number
+    for(let i=0;i<4;i++) {
+      nx = x + dx[i]
+      ny = y + dy[i]
+      if(0 <= nx && nx < length.value && 0 <= ny && ny < length.value) {
+        if (visited[ny][nx]==0 && matrix[ny][nx]=='1') {
+          selectedBox = document.querySelector(`.x${nx}y${ny}`)
+          selectedBox.style.backgroundColor = `${color}`
+          visited[ny][nx] = number
+          queue.push([ny,nx])  
+        }
+      } 
+    }
+  }
 }
 
 
