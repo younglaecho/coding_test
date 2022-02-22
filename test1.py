@@ -1,17 +1,7 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-cnt = 0
+dp = [0,1,1]
 
-while True:
-  max_val = max(arr)
-  max_index = arr.index(max_val)
-  if max_index==0:
-    break
-  arr[0]+=1
-  arr[max_index]-=1
-  cnt+=1
+for i in range(3, n+1):
+  dp.append((dp[i-2]+dp[i-1])%1000000)
 
-if arr.count(max_val)==1:
-  print(cnt)
-else:
-  print(cnt+1)
+print(dp[-1])
