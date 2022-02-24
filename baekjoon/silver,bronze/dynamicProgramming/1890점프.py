@@ -10,14 +10,12 @@ for i in range(n):
       print(dp[i][j])
       break
     
-    if dp[i][j]:
-      val = matrix[i][j]
-      if i + val < n:
-        dp[i+val][j] += dp[i][j]
-      if j + val < n:
-        dp[i][j+val] += dp[i][j]
+    val = matrix[i][j]
+    if i + val < n:
+      dp[i+val][j] += dp[i][j]
+    if j + val < n:
+      dp[i][j+val] += dp[i][j]
 
-print(dp)
     
 
 # def recur(x,y):
