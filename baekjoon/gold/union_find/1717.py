@@ -13,7 +13,13 @@ def find(x):
 def union(x,y):
   x = find(x)
   y = find(y)
-  parent[x] = y
+  if x == y:
+    return
+  if x < y :
+    parent[y] = x
+  else:
+    parent[x] = y
+
 
 n,m = map(int,input().split())
 parent = [i for i in range(n+1)]
