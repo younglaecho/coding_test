@@ -1,3 +1,7 @@
+import sys
+
+sys.setrecursionlimit(1000000)
+
 def find(x):
   if x == parent[x]:
     return x
@@ -9,11 +13,9 @@ def find(x):
 def union(x,y):
   x = find(x)
   y = find(y)
-
-  parent[y] = x
+  parent[x] = y
 
 n,m = map(int,input().split())
-
 parent = [i for i in range(n+1)]
 
 for _ in range(m):

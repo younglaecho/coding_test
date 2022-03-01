@@ -4,31 +4,50 @@ matrix = [list(map(int, input().split())) for _ in range(n)]
 dp = [[0 for _ in range(n)] for _ in range(n)]
 dp[0][0]=1
 
-for i in range(n):
-  for j in range(n):
-    if i == n-1 and j == n-1:
-      print(dp[i][j])
-      break
+# for i in range(n):
+#   for j in range(n):
+#     if i == n-1 and j == n-1:
+#       print(dp[i][j])
+#       break
     
-    val = matrix[i][j]
-    if i + val < n:
-      dp[i+val][j] += dp[i][j]
-    if j + val < n:
-      dp[i][j+val] += dp[i][j]
+#     val = matrix[i][j]
+#     if i + val < n:
+#       dp[i+val][j] += dp[i][j]
+#     if j + val < n:
+#       dp[i][j+val] += dp[i][j]
 
     
-
+# cnt = 0
+# dp = [[-1 for _ in range(n)] for _ in range(n)]
 # def recur(x,y):
 #   global cnt
 #   if x == n-1 and y == n-1:
 #     cnt+=1
 #     return
 
-#   if x>=n or y>=n:
-#     return
-  
-#   recur(x+matrix[x][y],y)
-#   recur(x,y+matrix[x][y])
+#   if dp[x][y] == -1:  
+#     dp[x][y] = 0
+#     if 0<=x+matrix[x][y]<n:
+#       recur(x+matrix[x][y],y)
+#     if 0<=y+matrix[x][y]<n:
+#       recur(x,y+matrix[x][y])
 
 # recur(0,0)
 # print(cnt)
+
+dp = [[-1 for _ in range(n)] for _ in range(n)]
+def recur(x,y):
+  if x == n-1 and y == n-1:
+    return 1
+
+  if dp[x][y] == -1:  
+    dp[x][y] = 0
+    if 0<=x+matrix[x][y]<n:
+      dp[x][y]+=recur(x+matrix[x][y],y)
+    if 0<=y+matrix[x][y]<n:
+      dp[x][y]+=recur(x,y+matrix[x][y])
+
+  return dp[x][y]
+
+print(recur(0,0))
+print(dp)
