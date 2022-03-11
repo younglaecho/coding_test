@@ -17,4 +17,7 @@ for i in range(1, Max):
     arr[i] += arr[i - 1]
 
 for x, y in input_list:
-    print(arr[y - 1] - arr[x - 2])
+    if x == 1:
+        print(arr[y - 1])
+    else:
+        print(arr[y - 1] - arr[x - 2])
