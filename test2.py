@@ -14,7 +14,6 @@ def solution(arr, processes):
     delay_w_process = deque()
 
     start_time1 = int(processes[-1].split()[1])
-    print(processes[-1].split()[1])
     status = 'empty'
     minus = 0
 
@@ -95,8 +94,7 @@ def solution(arr, processes):
                 minus+=1
                 last_time = time
     result.append(str(last_time-minus-start_time1))
-    print(result)        
-    # return answer
+    return result
 
 
 arr= ["1","2","4","3","3","4","1","5"]	
