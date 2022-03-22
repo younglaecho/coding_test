@@ -13,6 +13,7 @@ for i in range(n):
         Min = min(Min, matrix[i][j])
 
 import copy
+
 dif = Max - Min
 results = []
 
@@ -26,19 +27,15 @@ for i in range(dif+1):
         result += new_dict[Max-x]* 2
         tmp += new_dict[Max-x]
         new_dict[Max-x] = 0
-    print(new_dict)
     
     for x in range(dif-i):
         new_dict[Min+x+1] += new_dict[Min+x]
-        print(new_dict[Min+x])
         result += new_dict[Min+x]
         tmp -= new_dict[Min+x]
         new_dict[Min+x] = 0
-    print(new_dict)
 
     if tmp >=0:
         results.append((result, i))
 
 answer = min(results, key=lambda x: x[0])
-print(results)
 print(answer[0],Max-answer[1])
