@@ -15,6 +15,7 @@ for _ in range(m):
   graph[t].append(f)
 
 print(graph)
+
 # for i in graph:
 #   i.sort()
 # def dfs(graph, i, visited):
