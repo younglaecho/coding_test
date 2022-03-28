@@ -1,24 +1,30 @@
-n = int(input())
-Set = set()
-for _ in range(n):
-    state = input().split()
 
-    if state[0]=='add':
-        Set.add(state[1])
-    elif state[0]=='check':
-        if state[1] in Set:
-            print(1)
+import sys
+
+m = int(sys.stdin.readline())
+S = set()
+
+for _ in range(m):
+    temp = sys.stdin.readline().strip().split()
+    
+    if len(temp) == 1:
+        if temp[0] == "all":
+            S = set([i for i in range(1, 21)])
         else:
-            print(0)
-    elif state[0]=='remove':
-        if state[1] in Set:
-            Set.remove(state[1])
-    elif state[0]=='toggle':
-        if state[1] in Set:
-            Set.remove(state[1])
-        else:
-            Set.add(state[1])
-    elif state[0]=='all':
-        Set = {i for i in range(1, 21)}
-    elif state[0]=='empty':
-        Set = set()
+            S = set()
+    
+    else:
+        func, x = temp[0], temp[1]
+        x = int(x)
+
+        if func == "add":
+            S.add(x)
+        elif func == "remove":
+            S.discard(x)
+        elif func == "check":
+            print(1 if x in S else 0)
+        elif func == "toggle":
+            if x in S:
+                S.discard(x)
+            else:
+                S.add(x)
