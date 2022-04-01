@@ -1,3 +1,4 @@
+from curses.ascii import isdigit
 import sys
 
 input = sys.stdin.readline
@@ -8,14 +9,13 @@ cnt = 0
 
 for _ in range(n):
     cnt += 1
-    v = input()
+    v = input().strip()
     List.append(v)
     Dict[v] = cnt
 
 for _ in range(m):
-    v = input()
-    try:
-        List[int(v)]
+    v = input().strip()
+    if v.isdigit():
         print(List[int(v)])
-    except:
+    else:
         print(Dict[v])
