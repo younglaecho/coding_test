@@ -1,3 +1,1 @@
-Str = input()
-
-print(Str + "??!")
+print(input() + "??!")
