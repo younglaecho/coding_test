@@ -9,33 +9,32 @@ dy = [1, -1, 0, 0]
 queue = deque()
 cnt = 0
 for i in range(n):
-  for j in range(m):
-    if matrix[i][j]==1:
-      queue.append((i,j))
+    for j in range(m):
+        if matrix[i][j] == 1:
+            queue.append((i, j))
 
 while queue:
-  x, y = queue.popleft()
-  for k in range(4):
-    nx = x+dx[k]
-    ny = y+dy[k]
-    if 0 <= nx < n and 0 <= ny < m:
-      if matrix[nx][ny]==0:
-        matrix[nx][ny]=matrix[x][y]+1
-        queue.append((nx, ny))
+    x, y = queue.popleft()
+    for k in range(4):
+        nx = x + dx[k]
+        ny = y + dy[k]
+        if 0 <= nx < n and 0 <= ny < m:
+            if matrix[nx][ny] == 0:
+                matrix[nx][ny] = matrix[x][y] + 1
+                queue.append((nx, ny))
 
 Max = 0
 breaked = False
 for i in matrix:
-  for j in i:
-    if j == 0:
-      print(-1)
-      breaked = True
-      break
-    else:
-      Max = max(Max, j)
-  if breaked:
-    break
+    for j in i:
+        if j == 0:
+            print(-1)
+            breaked = True
+            break
+        else:
+            Max = max(Max, j)
+    if breaked:
+        break
 
 if not breaked:
-  print(Max-1)
-
+    print(Max - 1)
