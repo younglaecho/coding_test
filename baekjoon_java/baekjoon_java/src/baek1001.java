@@ -13,5 +13,6 @@ public class baek1001 {
         } else {
             System.out.println("<");
         }
+        sc.close();
     }
 }
